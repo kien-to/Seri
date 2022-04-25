@@ -2,7 +2,7 @@
 
 C2C Social Marketplace App where people can buy, sell, and connect.
 
-Steps to run projects in your local computer: 
+Steps to set up the project in your local computer: 
 1. Clone to Computer. Then run yarn in the terminal.
 2. Run "yarn start" to start server.
 3. Run either of the two following commands on a separate terminal:
