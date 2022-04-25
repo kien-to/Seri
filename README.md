@@ -7,5 +7,5 @@ Steps to set up the project in your local computer:
 2. Run "yarn" in the terminal.
 3. Run "yarn start" to start server.
 4. Run either of the two following commands on a separate terminal:
-- Run "yarn ios" to start ios simulator.
-- Run "yarn android" to start android simulator.
+- "yarn ios" to start ios simulator.
+- "yarn android" to start android simulator.
