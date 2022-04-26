@@ -182,3 +182,216 @@ export const deleteCartProduct = /* GraphQL */ `
     }
   }
 `;
+export const createOrderProduct = /* GraphQL */ `
+  mutation CreateOrderProduct(
+    $input: CreateOrderProductInput!
+    $condition: ModelOrderProductConditionInput
+  ) {
+    createOrderProduct(input: $input, condition: $condition) {
+      id
+      quantity
+      option
+      productID
+      product {
+        id
+        title
+        description
+        image
+        images
+        options
+        avgRating
+        ratings
+        price
+        oldPrice
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      orderID
+      order {
+        id
+        userSub
+        fullName
+        phoneNumber
+        country
+        city
+        address
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateOrderProduct = /* GraphQL */ `
+  mutation UpdateOrderProduct(
+    $input: UpdateOrderProductInput!
+    $condition: ModelOrderProductConditionInput
+  ) {
+    updateOrderProduct(input: $input, condition: $condition) {
+      id
+      quantity
+      option
+      productID
+      product {
+        id
+        title
+        description
+        image
+        images
+        options
+        avgRating
+        ratings
+        price
+        oldPrice
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      orderID
+      order {
+        id
+        userSub
+        fullName
+        phoneNumber
+        country
+        city
+        address
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteOrderProduct = /* GraphQL */ `
+  mutation DeleteOrderProduct(
+    $input: DeleteOrderProductInput!
+    $condition: ModelOrderProductConditionInput
+  ) {
+    deleteOrderProduct(input: $input, condition: $condition) {
+      id
+      quantity
+      option
+      productID
+      product {
+        id
+        title
+        description
+        image
+        images
+        options
+        avgRating
+        ratings
+        price
+        oldPrice
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      orderID
+      order {
+        id
+        userSub
+        fullName
+        phoneNumber
+        country
+        city
+        address
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const createOrder = /* GraphQL */ `
+  mutation CreateOrder(
+    $input: CreateOrderInput!
+    $condition: ModelOrderConditionInput
+  ) {
+    createOrder(input: $input, condition: $condition) {
+      id
+      userSub
+      fullName
+      phoneNumber
+      country
+      city
+      address
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateOrder = /* GraphQL */ `
+  mutation UpdateOrder(
+    $input: UpdateOrderInput!
+    $condition: ModelOrderConditionInput
+  ) {
+    updateOrder(input: $input, condition: $condition) {
+      id
+      userSub
+      fullName
+      phoneNumber
+      country
+      city
+      address
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteOrder = /* GraphQL */ `
+  mutation DeleteOrder(
+    $input: DeleteOrderInput!
+    $condition: ModelOrderConditionInput
+  ) {
+    deleteOrder(input: $input, condition: $condition) {
+      id
+      userSub
+      fullName
+      phoneNumber
+      country
+      city
+      address
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;

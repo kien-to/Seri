@@ -21,7 +21,7 @@ const BottomTabNav = () => {
       <Tab.Screen
        
         component={HomeStack}
-        name="HomeScreen"
+        name="home"
         options={{
           tabBarIcon: ({color, size}) => (
             <Entypo name="home" color={color} size={25} />

@@ -11,17 +11,21 @@ import {useNavigation} from '@react-navigation/native';
 import CartProductItem from '../../components/CartProductItem';
 import Button from '../../components/Button';
 import {CartProduct, Product} from '../../models';
-import {DataStore} from 'aws-amplify';
+import {Auth, DataStore} from 'aws-amplify';
 
 const ShoppingCartScreen = () => {
   const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
   const navigation = useNavigation();
 
+  const fetchCartProducts = async () => {
+    const userData = await Auth.currentAuthenticatedUser();
+    // TODO query only my cart items
+    DataStore.query(CartProduct, cp =>
+      cp.userSub('eq', userData.attributes.sub),
+    ).then(setCartProducts);
+  };
+
   useEffect(() => {
-    const fetchCartProducts = async () => {
-      //Query only my cart items
-      DataStore.query(CartProduct).then(setCartProducts);
-    };
     fetchCartProducts();
   }, []);
 
@@ -31,16 +35,18 @@ const ShoppingCartScreen = () => {
     }
 
     const fetchProducts = async () => {
+      // query all products that are used in cart
       const products = await Promise.all(
         cartProducts.map(cartProduct =>
           DataStore.query(Product, cartProduct.productId),
         ),
       );
-      
+
+      // assign the products to the cart items
       setCartProducts(currentCartProducts =>
         currentCartProducts.map(cartProduct => ({
           ...cartProduct,
-          product: products.find(p => (p?.id || 0) === cartProduct.productId),
+          product: products.find(p => p.id === cartProduct.productId),
         })),
       );
     };
@@ -48,13 +54,37 @@ const ShoppingCartScreen = () => {
     fetchProducts();
   }, [cartProducts]);
 
-  console.log(cartProducts);
+  useEffect(() => {
+    const subscription = DataStore.observe(CartProduct).subscribe(msg =>
+      fetchCartProducts(),
+    );
+    return subscription.unsubscribe;
+  }, []);
 
-  const totalPrice = cartProducts.reduce(
-    (summedPrice, product) =>
-      summedPrice + (product?.product?.price || 0) * product.quantity,
-    0,
-  );
+  useEffect(() => {
+    const subscriptions = cartProducts.map(cp => 
+      DataStore.observe(CartProduct, cp.id).subscribe(msg => {
+        if (msg.opType === 'UPDATE') {
+          setCartProducts(curCartProducts =>
+            curCartProducts.map(cp => {
+              if (cp.id !== msg.element.id) {
+                console.log('different id');
+                return cp;
+              }
+              return {
+                ...cp,
+                ...msg.element,
+              };
+            }),
+          );
+        }
+      })
+    );
+
+    return () => {
+      subscriptions.forEach(sub => sub.unsubscribe());
+    };
+  }, [cartProducts]);
 
   const onCheckout = () => {
     navigation.navigate('Address');
@@ -64,15 +94,21 @@ const ShoppingCartScreen = () => {
     return <ActivityIndicator />;
   }
 
+  const totalPrice = cartProducts.reduce(
+    (summedPrice, product) =>
+      summedPrice + (product?.product?.price || 0) * product.quantity,
+    0,
+  );
+
+
   return (
-    <View style={styles.page}>
+    <View style={{padding: 10}}>
       {/* Render Product Component */}
       <FlatList
         data={cartProducts}
         renderItem={({item}) => (
           <CartProductItem
             cartItem={item}
-            // Render Quantity selector
           />
         )}
         showsVerticalScrollIndicator={false}
@@ -98,11 +134,5 @@ const ShoppingCartScreen = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  page: {
-    padding: 10,
-  },
-});
 
 export default ShoppingCartScreen;

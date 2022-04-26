@@ -164,3 +164,198 @@ export const onDeleteCartProduct = /* GraphQL */ `
     }
   }
 `;
+export const onCreateOrderProduct = /* GraphQL */ `
+  subscription OnCreateOrderProduct {
+    onCreateOrderProduct {
+      id
+      quantity
+      option
+      productID
+      product {
+        id
+        title
+        description
+        image
+        images
+        options
+        avgRating
+        ratings
+        price
+        oldPrice
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      orderID
+      order {
+        id
+        userSub
+        fullName
+        phoneNumber
+        country
+        city
+        address
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateOrderProduct = /* GraphQL */ `
+  subscription OnUpdateOrderProduct {
+    onUpdateOrderProduct {
+      id
+      quantity
+      option
+      productID
+      product {
+        id
+        title
+        description
+        image
+        images
+        options
+        avgRating
+        ratings
+        price
+        oldPrice
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      orderID
+      order {
+        id
+        userSub
+        fullName
+        phoneNumber
+        country
+        city
+        address
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteOrderProduct = /* GraphQL */ `
+  subscription OnDeleteOrderProduct {
+    onDeleteOrderProduct {
+      id
+      quantity
+      option
+      productID
+      product {
+        id
+        title
+        description
+        image
+        images
+        options
+        avgRating
+        ratings
+        price
+        oldPrice
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      orderID
+      order {
+        id
+        userSub
+        fullName
+        phoneNumber
+        country
+        city
+        address
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onCreateOrder = /* GraphQL */ `
+  subscription OnCreateOrder {
+    onCreateOrder {
+      id
+      userSub
+      fullName
+      phoneNumber
+      country
+      city
+      address
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateOrder = /* GraphQL */ `
+  subscription OnUpdateOrder {
+    onUpdateOrder {
+      id
+      userSub
+      fullName
+      phoneNumber
+      country
+      city
+      address
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteOrder = /* GraphQL */ `
+  subscription OnDeleteOrder {
+    onDeleteOrder {
+      id
+      userSub
+      fullName
+      phoneNumber
+      country
+      city
+      address
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
