@@ -21,7 +21,7 @@
 - https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/products/mouse3.jpg
 
 ## Files
-- **products.ts**: A list of products having:
+- **products.ts**: A list of products have:
   - id
   - title
   - image
