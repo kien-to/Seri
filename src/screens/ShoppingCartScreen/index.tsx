@@ -86,20 +86,19 @@ const ShoppingCartScreen = () => {
     };
   }, [cartProducts]);
 
-  const onCheckout = () => {
-    navigation.navigate('Address');
-  };
-
-  if (cartProducts.filter(cp => !cp.product).length !== 0) {
-    return <ActivityIndicator />;
-  }
-
   const totalPrice = cartProducts.reduce(
     (summedPrice, product) =>
       summedPrice + (product?.product?.price || 0) * product.quantity,
     0,
   );
 
+  const onCheckout = () => {
+    navigation.navigate('Address', {totalPrice: totalPrice});
+  };
+
+  if (cartProducts.filter(cp => !cp.product).length !== 0) {
+    return <ActivityIndicator />;
+  }
 
   return (
     <View style={{padding: 10}}>
