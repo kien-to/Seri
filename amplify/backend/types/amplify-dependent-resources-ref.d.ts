@@ -17,6 +17,25 @@ export type AmplifyDependentResourcesAttributes = {
             "GraphQLAPIKeyOutput": "string",
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
+        },
+        "StripeWebhook": {
+            "RootUrl": "string",
+            "ApiName": "string",
+            "ApiId": "string"
+        }
+    },
+    "function": {
+        "Seri": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
+        },
+        "StripeWebhook": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
         }
     }
 }

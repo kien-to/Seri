@@ -14,6 +14,16 @@
     "categories": {
       "auth": {
         "desellb9dfc161": {}
+      },
+      "function": {
+        "Seri": {
+          "deploymentBucketName": "amplify-desell-dev-163221-deployment",
+          "s3Key": "amplify-builds/Seri-4b50714f6d7a59306b51-build.zip"
+        },
+        "StripeWebhook": {
+          "deploymentBucketName": "amplify-desell-dev-163221-deployment",
+          "s3Key": "amplify-builds/StripeWebhook-45733462315a49552f4a-build.zip"
+        }
       }
     }
   }

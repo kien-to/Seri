@@ -7,15 +7,16 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import React, {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {Picker} from '@react-native-picker/picker';
 import countryList from 'country-list';
 import Button from '../../components/Button';
 import {Order, OrderProduct, CartProduct} from '../../models';
 import styles from './styles';
-import {Auth, DataStore} from 'aws-amplify';
-
+import {useStripe} from '@stripe/stripe-react-native';
+import {Auth, DataStore, API, graphqlOperation} from 'aws-amplify';
+import {seri} from '../../graphql/mutations';
 const countries = countryList.getData();
 
 const AddressScreen = () => {
@@ -25,8 +26,57 @@ const AddressScreen = () => {
   const [address, setAddress] = useState('');
   const [addressError, setAddressError] = useState('');
   const [city, setCity] = useState('');
+  const [clientSecret, setClientSecret] = useState<String| null>(null);
 
+  const {initPaymentSheet, presentPaymentSheet} = useStripe();
   const navigation = useNavigation();
+  const route = useRoute();
+  const amount = Math.floor(route.params?.totalPrice * 100 || 0);
+
+  useEffect(() => {
+    fetchPaymentIntent();
+  }, []);
+
+  useEffect(() => {
+    if(clientSecret) {
+      initalizePaymentSheet();
+    }
+  }, [clientSecret]);
+  
+  const fetchPaymentIntent = async() => {
+    const response = await API.graphql(
+      graphqlOperation(seri, {amount})
+    )
+    console.log(response.data.Seri.clientSecret)
+    setClientSecret(response.data.Seri.clientSecret)
+  }
+
+  const initalizePaymentSheet = async() => {
+    if(!clientSecret) {
+      return;
+    }
+    const { error } = await initPaymentSheet({
+      paymentIntentClientSecret: clientSecret,
+    });
+    console.log('success');
+    if (error) {
+      Alert.alert(error);
+    }
+  }
+
+  const openPaymentSheet = async () => {
+    if(!clientSecret) {
+      return;
+    }
+    const { error } = await presentPaymentSheet();
+
+    if (error) {
+      Alert.alert(`Error code: ${error.code}`, error.message);
+    } else {
+      saveOrder();
+      Alert.alert('Success', 'Your order is confirmed!');
+    }
+  };
 
   const saveOrder = async () => {
     // get user details
@@ -85,8 +135,7 @@ const AddressScreen = () => {
       return;
     }
 
-    console.warn('Success. Checkout');
-    saveOrder();
+    openPaymentSheet();
   };
 
   const validateAddress = () => {

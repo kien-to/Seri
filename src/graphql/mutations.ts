@@ -2,6 +2,13 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const seri = /* GraphQL */ `
+  mutation Seri($amount: Int!) {
+    Seri(amount: $amount) {
+      clientSecret
+    }
+  }
+`;
 export const createProduct = /* GraphQL */ `
   mutation CreateProduct(
     $input: CreateProductInput!
