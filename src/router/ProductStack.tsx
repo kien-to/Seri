@@ -2,11 +2,12 @@ import {View, Text, TextInput, SafeAreaView} from 'react-native';
 import React, {useState} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
-import HomeScreen from '../screens/HomeScreen';
+import MenuScreen from '../screens/MenuScreen';
 import BottomTabNav from './bottomTabNav';
-import ProductScreen from '../screens/ProductScreen/index';
+import ProductScreen from '../screens/ProductScreen';
 import {Header} from 'react-native/Libraries/NewAppScreen';
 import Feather from 'react-native-vector-icons/Feather';
+// import MovieDetailsScreen from '../screens/MovieDetailsScreen';
 
 const Stack = createStackNavigator();
 
@@ -41,7 +42,7 @@ const HeaderComponent = ({
   );
 };
 
-const HomeStack = () => {
+const ProductStack = () => {
   const [searchValue, setSearchValue] = useState('');
 
   return (
@@ -55,11 +56,11 @@ const HomeStack = () => {
         ),
       }}>
       <Stack.Screen name="HomeScreen" options={{title: 'Home'}}>
-        {() => <HomeScreen searchValue={searchValue} />}
+        {() => <MenuScreen/>}
       </Stack.Screen>
       <Stack.Screen component={ProductScreen} name="ProductDetails" />
     </Stack.Navigator>
   );
 };
 
-export default HomeStack;
+export default ProductStack;

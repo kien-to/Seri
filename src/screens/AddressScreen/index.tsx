@@ -31,6 +31,7 @@ const AddressScreen = () => {
   const {initPaymentSheet, presentPaymentSheet} = useStripe();
   const navigation = useNavigation();
   const route = useRoute();
+  console.log(route.params?.totalPrice);
   const amount = Math.floor(route.params?.totalPrice * 100 || 0);
 
   useEffect(() => {

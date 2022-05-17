@@ -57,3 +57,4 @@ type Order @model @auth(rules: [{ allow: public }]){
   city: String
   address: String
 }
+

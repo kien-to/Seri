@@ -24,6 +24,7 @@ const ProductScreen = () => {
     if (!route.params?.id) {
       return;
     }
+    //console.log(route.params);
     DataStore.query(Product, route.params.id).then(setProduct);
   });
 
@@ -49,7 +50,7 @@ const ProductScreen = () => {
     });
 
     await DataStore.save(newCartProduct);
-    navigation.navigate('shoppingCart');
+    navigation.navigate('Cart');
   };
 
   if (!product) {
