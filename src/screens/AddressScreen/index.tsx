@@ -28,56 +28,56 @@ const AddressScreen = () => {
   const [city, setCity] = useState('');
   const [clientSecret, setClientSecret] = useState<String| null>(null);
 
-  const {initPaymentSheet, presentPaymentSheet} = useStripe();
+  //const {initPaymentSheet, presentPaymentSheet} = useStripe();
   const navigation = useNavigation();
   const route = useRoute();
   console.log(route.params?.totalPrice);
   const amount = Math.floor(route.params?.totalPrice * 100 || 0);
 
-  useEffect(() => {
-    fetchPaymentIntent();
-  }, []);
+  // useEffect(() => {
+  //   fetchPaymentIntent();
+  // }, []);
 
-  useEffect(() => {
-    if(clientSecret) {
-      initalizePaymentSheet();
-    }
-  }, [clientSecret]);
+  // useEffect(() => {
+  //   if(clientSecret) {
+  //     initalizePaymentSheet();
+  //   }
+  // }, [clientSecret]);
   
-  const fetchPaymentIntent = async() => {
-    const response = await API.graphql(
-      graphqlOperation(seri, {amount})
-    )
-    console.log(response.data.Seri.clientSecret)
-    setClientSecret(response.data.Seri.clientSecret)
-  }
+  // const fetchPaymentIntent = async() => {
+  //   const response = await API.graphql(
+  //     graphqlOperation(seri, {amount})
+  //   )
+  //   console.log(response.data.Seri.clientSecret)
+  //   setClientSecret(response.data.Seri.clientSecret)
+  // }
 
-  const initalizePaymentSheet = async() => {
-    if(!clientSecret) {
-      return;
-    }
-    const { error } = await initPaymentSheet({
-      paymentIntentClientSecret: clientSecret,
-    });
-    console.log('success');
-    if (error) {
-      Alert.alert(error);
-    }
-  }
+  // const initalizePaymentSheet = async() => {
+  //   if(!clientSecret) {
+  //     return;
+  //   }
+  //   const { error } = await initPaymentSheet({
+  //     paymentIntentClientSecret: clientSecret,
+  //   });
+  //   console.log('success');
+  //   if (error) {
+  //     Alert.alert(error);
+  //   }
+  // }
 
-  const openPaymentSheet = async () => {
-    if(!clientSecret) {
-      return;
-    }
-    const { error } = await presentPaymentSheet();
+  // const openPaymentSheet = async () => {
+  //   if(!clientSecret) {
+  //     return;
+  //   }
+  //   const { error } = await presentPaymentSheet();
 
-    if (error) {
-      Alert.alert(`Error code: ${error.code}`, error.message);
-    } else {
-      saveOrder();
-      Alert.alert('Success', 'Your order is confirmed!');
-    }
-  };
+  //   if (error) {
+  //     Alert.alert(`Error code: ${error.code}`, error.message);
+  //   } else {
+  //     saveOrder();
+  //     Alert.alert('Success', 'Your order is confirmed!');
+  //   }
+  // };
 
   const saveOrder = async () => {
     // get user details
@@ -136,7 +136,7 @@ const AddressScreen = () => {
       return;
     }
 
-    openPaymentSheet();
+    //openPaymentSheet();
   };
 
   const validateAddress = () => {

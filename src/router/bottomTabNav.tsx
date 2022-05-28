@@ -5,6 +5,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import HomeStack from './HomeStack';
+import ChatStack from './ChatStack';
 import ShoppingCartStack from './ShoppingCartStack';
 import ProductStack from './ProductStack';
 import LogOutScreen from '../screens/LogOutScreen';
@@ -49,7 +50,7 @@ const BottomTabNav = () => {
         }}
       />
       <Tab.Screen
-        component={ChatRoomScreen}
+        component={ChatStack}
         name="Notification"
         options={{
           tabBarIcon: ({color, size}) => (
