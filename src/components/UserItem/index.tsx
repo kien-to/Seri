@@ -3,7 +3,7 @@ import { Text, Image, View, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import styles from './styles';
 import { Auth, DataStore } from 'aws-amplify';
-import { ChatRoom, User, ChatRoomUser } from '../../src/models';
+import { ChatRoom, User, ChatRoomUser } from '../../models';
 
 export default function UserItem({ user }) {
   const navigation = useNavigation();

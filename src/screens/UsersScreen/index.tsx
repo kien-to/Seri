@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import { View, StyleSheet, FlatList } from 'react-native';
 import { DataStore } from '@aws-amplify/datastore';
-import UserItem from '../components/UserItem';
-import { User } from '../src/models';
+import UserItem from '../../components/UserItem';
+import { User } from '../../models';
 
 export default function UsersScreen() {
   const [users, setUsers] = useState<User[]>([]);
