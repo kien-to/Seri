@@ -5,7 +5,7 @@ import AddressScreen from '../screens/AddressScreen';
 
 const Stack = createStackNavigator();
 
-const HomeStack = () => {
+const ShoppingCartStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -22,4 +22,4 @@ const HomeStack = () => {
   );
 };
 
-export default HomeStack;
+export default ShoppingCartStack;

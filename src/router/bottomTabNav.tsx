@@ -1,11 +1,15 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
-import ProductScreen from '../screens/ProductScreen';
 import Entypo from 'react-native-vector-icons/Entypo';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import HomeStack from './HomeStack';
+import ChatStack from './ChatStack';
 import ShoppingCartStack from './ShoppingCartStack';
-import MenuScreen from '../screens/MenuScreen';
+import ProductStack from './ProductStack';
+import LogOutScreen from '../screens/LogOutScreen';
+import ChatRoomScreen from '../screens/ChatRoomScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,14 +18,13 @@ const BottomTabNav = () => {
     <Tab.Navigator
       screenOptions={{headerShown: false}}
       tabBarOptions={{
-        showLabel: false,
-        inactiveTintColor: '#ffbd7d',
-        activeTintColor: '#e47911',
+        // showLabel: false,
+        inactiveTintColor: '#000000',
+        activeTintColor: '#E50914',
       }}>
       <Tab.Screen
-       
-        component={HomeStack}
-        name="home"
+        component={ProductStack}
+        name="Home"
         options={{
           tabBarIcon: ({color, size}) => (
             <Entypo name="home" color={color} size={25} />
@@ -29,17 +32,8 @@ const BottomTabNav = () => {
         }}
       />
       <Tab.Screen
-        component={HomeScreen}
-        name="profile"
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <Entypo name="user" color={color} size={25} />
-          ),
-        }}
-      />
-      <Tab.Screen
         component={ShoppingCartStack}
-        name="shoppingCart"
+        name="Cart"
         options={{
           tabBarIcon: ({color, size}) => (
             <Entypo name="shopping-cart" color={color} size={25} />
@@ -47,8 +41,26 @@ const BottomTabNav = () => {
         }}
       />
       <Tab.Screen
-        component={MenuScreen}
-        name="menu"
+        component={HomeStack}
+        name="Sell"
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Entypo name="camera" color={color} size={25} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        component={ChatStack}
+        name="Notification"
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Entypo name="message" color={color} size={25} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        component={LogOutScreen}
+        name="Menu"
         options={{
           tabBarIcon: ({color, size}) => (
             <Entypo name="menu" color={color} size={25} />
