@@ -1,7 +1,9 @@
 # Seri
 
 C2C Social Marketplace App where people can buy, sell, and connect.
+
 Current features: Authentication, Shopping Cart, Reviews, Product Listing, Direct messaging between users, Stripe-integrated payment.
+
 Future features: Augmented Reality try-ons for selected products, Computer Vision authentication technology.
 
 Steps to set up the project in your local computer: 
