@@ -1,6 +1,6 @@
 # Seri
 
-C2C Social Marketplace App where people can buy, sell, and connect.
+C2C Marketplace App where people can buy, sell, and connect.
 
 Current features: Authentication, Shopping Cart, Reviews, Product Listing, Direct messaging, Stripe-integrated payment.
 
