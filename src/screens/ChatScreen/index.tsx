@@ -16,7 +16,7 @@ export default function TabOneScreen() {
       console.log(userData)
       const chatRooms = (await DataStore.query(ChatRoomUser))
         .filter(chatRoomUser => chatRoomUser.user.id === userData.attributes.sub)
-        // .map(chatRoomUser => chatRoomUser.chatroom);
+        .map(chatRoomUser => chatRoomUser.chatroom);
 
       console.log(chatRooms)
       setChatRooms(chatRooms);
@@ -24,9 +24,9 @@ export default function TabOneScreen() {
     fetchChatRooms();
   }, []);
 
-  const logOut = () => {
-    Auth.signOut();
-  }
+  // const logOut = () => {
+  //   Auth.signOut();
+  // }
 
   return (
     <View style={styles.page}>

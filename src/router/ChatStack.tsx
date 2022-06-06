@@ -67,7 +67,7 @@ const HomeHeader = props => {
 
 const ChatRoomHeader = props => {
   const {width} = useWindowDimensions();
-  console.log(props);
+  // console.log(props);
 
   return (
     <View

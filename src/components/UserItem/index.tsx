@@ -19,12 +19,12 @@ export default function UserItem({ user }) {
     
     // connect authenticated user with the chat room
     const authUser = await Auth.currentAuthenticatedUser();
-    console.log(authUser);
+    // console.log(authUser);
     const dbUser = await DataStore.query(User, authUser.attributes.sub);
 
-    console.log('here')
     console.log(dbUser);
-    // console.log(user);
+    console.log("here");
+    console.log(user);
 
     await DataStore.save(new ChatRoomUser({
       user: dbUser,

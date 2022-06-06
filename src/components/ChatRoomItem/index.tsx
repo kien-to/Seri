@@ -60,36 +60,57 @@
 //   );
 // }
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, Image, View, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import styles from './styles';
+import { Auth, DataStore } from 'aws-amplify';
+import { ChatRoomUser, Message, User } from '../../models';
 
 export default function ChatRoomItem({ chatRoom }) {
-  const user = chatRoom.user;
-  //const user = null;
+  /// const [users, setUsers] = useState<User[]>([]); // all users in this chatroom
+  const [user, setUser] = useState<User|null>(null); // the display user
+  const [lastMessage, setLastMessage] = useState<Message|undefined>();
+
+  // const navigation = useNavigation();
+  // console.log(chatRoom);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const fetchedUsers = (await DataStore.query(ChatRoomUser))
+        .filter(chatRoomUser => chatRoomUser.chatroom.id === chatRoom.id)
+        .map(chatRoomUser => chatRoomUser.user);
+
+        console.log(fetchedUsers)
+      //setUser(fetchedUsers[0]);
+
+      const authUser = await Auth.currentAuthenticatedUser();
+      setUser(fetchedUsers.find(user => user.id !== authUser.attributes.sub) || null);
+    };
+    fetchUsers();
+  }, []);
 
   const navigation = useNavigation();
 
   const onPress = () => {
-    console.warn('pressed on ', user.name)
     navigation.navigate('ChatRoom', { id: chatRoom.id });
   }
+  console.log(user);
 
   return (
     <Pressable onPress={onPress} style={styles.container}>
-      <Image source={{ uri: user.imageUri}} style={styles.image} />
-
-      {chatRoom.newMessages && <View style={styles.badgeContainer}>
+      <Image source={{ uri: user?.imageUri}} style={styles.image} />
+      <Text>ChatRoom</Text>
+      {!!chatRoom.newMessages && <View style={styles.badgeContainer}>
         <Text style={styles.badgeText}>{chatRoom.newMessages}</Text>
       </View>}
 
       <View style={styles.rightContainer}>
         <View style={styles.row}>
-          <Text style={styles.name}>{user.name}</Text>
-          {/* <Text style={styles.text}>{chatRoom.lastMessage.createdAt}</Text> */}
+          <Text style={styles.name}>{user?.name}</Text>
+          <Text style={styles.text}>{lastMessage?.createdAt}</Text>
         </View>
-        {/* <Text numberOfLines={1} style={styles.text}>{chatRoom.lastMessage.content}</Text> */}
+        <Text numberOfLines={1} style={styles.text}>{lastMessage?.content}</Text>
       </View>
     </Pressable>
   );
