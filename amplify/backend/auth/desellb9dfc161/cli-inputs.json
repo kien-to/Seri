@@ -2,7 +2,7 @@
   "version": "1",
   "cognitoConfig": {
     "identityPoolName": "desellb9dfc161_identitypool_b9dfc161",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "desellb9dfc161",
     "userPoolName": "desellb9dfc161_userpool_b9dfc161",
     "autoVerifiedAttributes": [
@@ -81,7 +81,9 @@
     "parentStack": {
       "Ref": "AWS::StackId"
     },
-    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"desellb9dfc161PostConfirmation\"\n  }\n]",
+    "authTriggerConnections": [
+      "{\"triggerType\":\"PostConfirmation\",\"lambdaFunctionName\":\"desellb9dfc161PostConfirmation\"}"
+    ],
     "permissions": []
   }
 }

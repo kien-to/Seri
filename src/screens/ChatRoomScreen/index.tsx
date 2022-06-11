@@ -28,7 +28,6 @@ const ChatRoomScreen = () => {
         inverted
       />
       <MessageInput />
-
     </SafeAreaView>
   )
 };

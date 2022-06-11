@@ -14,7 +14,8 @@
     },
     "categories": {
       "auth": {
-        "desellb9dfc161": {}
+        "desellb9dfc161": {},
+        "true": {}
       },
       "function": {
         "Seri": {
@@ -28,6 +29,14 @@
         "desellb9dfc161PostConfirmation": {
           "deploymentBucketName": "amplify-desell-dev-163221-deployment",
           "s3Key": "amplify-builds/desellb9dfc161PostConfirmation-6f436167522b72515855-build.zip"
+        },
+        "processPayment": {
+          "deploymentBucketName": "amplify-desell-dev-163221-deployment",
+          "s3Key": "amplify-builds/processPayment-4969384f42526843306a-build.zip"
+        },
+        "createOrder": {
+          "deploymentBucketName": "amplify-desell-dev-163221-deployment",
+          "s3Key": "amplify-builds/createOrder-7261567247744c5a6f6a-build.zip"
         }
       }
     }

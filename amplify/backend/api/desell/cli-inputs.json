@@ -3,18 +3,25 @@
   "serviceConfiguration": {
     "apiName": "desell",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "/Users/lkthaiha/Downloads/Code/Desell/amplify/backend/api/desell/schema.graphql",
+    "gqlSchemaPath": "/Users/lkthaiha/Downloads/Code/Seri-web/amplify/backend/api/desell/schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "expirationTime": 365,
-      "apiKeyExpirationDate": "2023-04-24T21:22:00.167Z",
-      "keyDescription": "kiento"
+      "keyDescription": "api key description",
+      "expirationTime": 30
     },
     "conflictResolution": {
       "defaultResolutionStrategy": {
         "type": "AUTOMERGE"
       }
     },
-    "additionalAuthTypes": []
+    "additionalAuthTypes": [
+      {
+        "mode": "AWS_IAM"
+      },
+      {
+        "mode": "AMAZON_COGNITO_USER_POOLS",
+        "cognitoUserPoolId": "authdesellb9dfc161"
+      }
+    ]
   }
 }
