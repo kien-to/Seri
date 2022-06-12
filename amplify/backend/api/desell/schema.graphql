@@ -1,42 +1,56 @@
-input AMPLIFY {
-  globalAuthRule: AuthRule = {allow: public}
-}
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
-type Product @model @auth(rules: [{allow: public}]) {
-  id: ID!
+# type Mutation {
+#   Seri(amount: Int!): PaymentIntent! @function(name: "Seri-${env}")
+# }
+
+# type PaymentIntent {
+#   clientSecret: String!
+# }
+
+type Product @model @auth(rules: [{ allow: public}]){
+  id: ID! 
   title: String!
   description: String
   image: String!
   images: [String!]!
   options: [String!]
+
   avgRating: Float
-  ratings: Int
+  ratings: Int 
+
   price: Float!
   oldPrice: Float
 }
 
-type CartProduct @model @auth(rules: [{allow: public}]) {
+type CartProduct @model @auth(rules: [{ allow: public }]){
   id: ID!
   userSub: String!
   quantity: Int!
   option: String
+
   productId: ID!
   product: Product @hasOne(fields: ["productId"])
 }
 
-type OrderProduct @model @auth(rules: [{allow: public}]) {
+type OrderProduct @model @auth(rules: [{ allow: public }]) {
   id: ID!
   quantity: Int!
   option: String
+  
   productID: ID!
   product: Product @hasOne(fields: ["productID"])
+
   orderID: ID!
   order: Order @hasOne(fields: ["orderID"])
 }
 
-type Order @model @auth(rules: [{allow: public}]) {
+type Order @model @auth(rules: [{ allow: public }]){
   id: ID!
   userSub: String!
+
   fullName: String!
   phoneNumber: String
   country: String
@@ -44,7 +58,11 @@ type Order @model @auth(rules: [{allow: public}]) {
   address: String
 }
 
-type Message @model @auth(rules: [{allow: public}]) {
+type Message @model 
+  @auth(rules: [{allow: public}]) 
+  # @key(name: "byUser", fields: ["userID"]) 
+  # @key(name: "byChatRoom", fields: ["chatroomID"]) 
+  {
   id: ID!
   content: String!
   userID: ID @index(name: "byUser")
@@ -68,95 +86,13 @@ type User @model @auth(rules: [{allow: public}]) {
   chatrooms: [ChatRoomUser] @hasMany(indexName: "byUser", fields: ["id"])
 }
 
-type ChatRoomUser @model @auth(rules: [{allow: public}]) {
+type ChatRoomUser @model
+  # @key(name: "byChatRoom", fields: ["chatroomID", "userID"]) 
+  # @key(name: "byUser", fields: ["userID", "chatroomID"]) 
+  @auth(rules: [{allow: public}]) {
   id: ID!
   chatroomID: ID! @index(name: "byChatRoom", sortKeyFields: ["userID"])
   userID: ID! @index(name: "byUser", sortKeyFields: ["chatroomID"])
   chatroom: ChatRoom! @belongsTo(fields: ["chatroomID"])
   user: User! @belongsTo(fields: ["userID"])
-} 
-
-type Book
-  @model(subscriptions: null)
-  @auth(
-    rules: [
-      # allow admins to create, update and delete books
-      { allow: groups, groups: ["Admin"] }
-      # allow all authenticated users to view books
-      { allow: private, operations: [read] }
-      # allow all guest users (not authenticated) to view books
-      { allow: public, operations: [read] }
-    ]
-  ) {
-  id: ID!
-  title: String!
-  description: String
-  image: String
-  author: String
-  featured: Boolean
-  price: Float
-  orders: [BookOrder] @hasMany(indexName: "byBook", fields: ["id"]) 
 }
-
-type BookOrder
-  @model(queries: null, subscriptions: null)
-  @auth(
-    rules: [
-      # allow admins to create bookorders for customers by using customer email in lambda
-      { allow: owner, identityClaim: "email", ownerField: "customer" }
-      { allow: groups, groups: ["Admin"] }
-    ]
-  ) {
-  id: ID!
-  # @primaryKey
-  book_id: ID!  @index(name: "byBook", sortKeyFields: ["order_id"])
-  order_id: ID! @index(name: "byOrder", sortKeyFields: ["book_id"])
-  book: Book @belongsTo(fields: ["book_id"])
-  order: UserOrder @belongsTo(fields: ["order_id"])
-}
-
-type UserOrder
-  @model(subscriptions: null)
-  @auth(
-    rules: [
-      # only owner can see his orders
-      { allow: owner, identityClaim: "email", ownerField: "customer" }
-      # allow admins to view orders
-      { allow: groups, groups: ["Admin"] }
-    ]
-  )
-   {
-  id: ID!
-  # @primaryKey
-  user: String! @index(name: "byUser")
-  date: String
-  total: Float
-  books: [BookOrder] @hasMany(indexName: "byOrder", fields: ["id"])
-}
-
-enum OrderStatus {
-  SUCCESS
-  FAILED
-}
-
-input CartItem {
-  id: ID!
-  title: String
-  image: String
-  price: Float
-  amount: Int
-}
-
-input ProcessOrderInput {
-  id: ID!
-  cart: [CartItem]
-  total: Float!
-  token: String!
-  address: String
-}
-
-# type Mutation {
-#   processOrder(input: ProcessOrderInput!): OrderStatus
-#     @function(name: "processPayment-${env}")
-#     @function(name: "createOrder-${env}")
-# }

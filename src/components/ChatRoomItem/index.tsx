@@ -82,9 +82,10 @@ export default function ChatRoomItem({ chatRoom }) {
         .map(chatRoomUser => chatRoomUser.user);
 
         console.log(fetchedUsers)
-      //setUser(fetchedUsers[0]);
+        setUser(fetchedUsers[0]);
 
       const authUser = await Auth.currentAuthenticatedUser();
+      //console.log(authUser);
       setUser(fetchedUsers.find(user => user.id !== authUser.attributes.sub) || null);
     };
     fetchUsers();
@@ -100,7 +101,7 @@ export default function ChatRoomItem({ chatRoom }) {
   return (
     <Pressable onPress={onPress} style={styles.container}>
       <Image source={{ uri: user?.imageUri}} style={styles.image} />
-      <Text>ChatRoom</Text>
+      {/* <Text>ChatRoom</Text> */}
       {!!chatRoom.newMessages && <View style={styles.badgeContainer}>
         <Text style={styles.badgeText}>{chatRoom.newMessages}</Text>
       </View>}
