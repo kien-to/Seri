@@ -60,7 +60,7 @@ export default function ChatRoomScreen() {
     setMessages(fetchedMessages);
   };
 
-  navigation.setOptions({title: 'Elon Musk'})
+  navigation.setOptions({title: 'Kien To'})
 
   if (!chatRoom) {
     return <ActivityIndicator />

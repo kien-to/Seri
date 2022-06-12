@@ -11,16 +11,7 @@ export default function UsersScreen() {
   useEffect(() => {
     DataStore.query(User).then(setUsers);
   }, [])
-
-  // useEffect(() => {
-  //   // query users
-  //   const fetchUsers = async () => {
-  //     const fetchedUsers = await DataStore.query(User);
-  //     setUsers(fetchedUsers);
-  //   };
-  //   fetchUsers();
-  // }, [])
-
+  
   return (
     <View style={styles.page}>
        <FlatList 

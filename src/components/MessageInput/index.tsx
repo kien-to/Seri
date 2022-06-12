@@ -8,22 +8,37 @@ import {
   KeyboardAvoidingView, 
   Platform 
 } from 'react-native';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import { DataStore } from '@aws-amplify/datastore';
+import { ChatRoom, Message } from '../../models';
+import { Auth } from 'aws-amplify';
 import Feather from 'react-native-vector-icons/Feather';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
- 
-import styles from './styles';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
-const MessageInput = () => {
+
+const MessageInput = ({ chatRoom }) => {
   const [message, setMessage] = useState('');
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     // send message
-    console.warn("sending: ", message);
+    const user = await Auth.currentAuthenticatedUser();
+    const newMessage = await DataStore.save(new Message({
+      content: message,
+      userID: user.attributes.sub,
+      chatroomID: chatRoom.id,
+    }))
+
+    updateLastMessage(newMessage);
 
     setMessage('');
+  }
+
+  const updateLastMessage = async (newMessage) => {
+    DataStore.save(ChatRoom.copyOf(chatRoom, updatedChatRoom => {
+      updatedChatRoom.LastMessage = newMessage;
+    }))
   }
 
   const onPlusClicked = () => {
@@ -63,5 +78,42 @@ const MessageInput = () => {
     </KeyboardAvoidingView>
   )
 }
+
+const styles = StyleSheet.create({
+  root: {
+    flexDirection: 'row',
+    padding: 10,
+  },
+  inputContainer: {
+    backgroundColor: '#f2f2f2',
+    flex: 1,
+    marginRight: 10,
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: '#dedede',
+    alignItems: 'center',
+    flexDirection: 'row',
+    padding: 5,
+  },
+  input: {
+    flex: 1,
+    marginHorizontal: 5,
+  },
+  icon: {
+    marginHorizontal: 5,
+  },
+  buttonContainer: {
+    width: 40,
+    height: 40,
+    backgroundColor: '#3777f0',
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 35,
+  }
+});
 
 export default MessageInput

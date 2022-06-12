@@ -18,15 +18,11 @@ export default function TabOneScreen() {
         .filter(chatRoomUser => chatRoomUser.user.id === userData.attributes.sub)
         .map(chatRoomUser => chatRoomUser.chatroom);
 
-      console.log(chatRooms)
+      // console.log(chatRooms)
       setChatRooms(chatRooms);
     };
     fetchChatRooms();
   }, []);
-
-  // const logOut = () => {
-  //   Auth.signOut();
-  // }
 
   return (
     <View style={styles.page}>

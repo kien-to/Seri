@@ -14,7 +14,7 @@ import {
   useWindowDimensions,
   Pressable,
 } from 'react-native';
-import {Feather} from '@expo/vector-icons';
+import Feather from 'react-native-vector-icons/Feather';
 import ChatRoomScreen from '../screens/ChatRoomScreen';
 import ChatScreen from '../screens/ChatScreen';
 import UsersScreen from '../screens/UsersScreen/index';
@@ -35,7 +35,7 @@ const HomeHeader = props => {
       <Pressable onPress={() => navigation.navigate('UsersScreen')}>
         <Image
           source={{
-            uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
+            uri: 'https://cdn.nba.com/headshots/nba/latest/1040x760/201566.png',
           }}
           style={{width: 30, height: 30, borderRadius: 30}}
         />
@@ -47,7 +47,7 @@ const HomeHeader = props => {
           marginLeft: 50,
           fontWeight: 'bold',
         }}>
-        Signal
+        Notifications
       </Text>
       <Feather
         name="camera"
@@ -81,7 +81,7 @@ const ChatRoomHeader = props => {
       }}>
       <Image
         source={{
-          uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
+          uri: 'https://cdn.nba.com/headshots/nba/latest/1040x760/201566.png',
         }}
         style={{width: 30, height: 30, borderRadius: 30}}
       />

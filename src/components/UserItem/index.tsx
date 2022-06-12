@@ -22,10 +22,6 @@ export default function UserItem({ user }) {
     // console.log(authUser);
     const dbUser = await DataStore.query(User, authUser.attributes.sub);
 
-    console.log(dbUser);
-    console.log("here");
-    console.log(user);
-
     await DataStore.save(new ChatRoomUser({
       user: dbUser,
       chatroom: newChatRoom
