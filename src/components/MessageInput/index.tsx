@@ -35,11 +35,17 @@ const MessageInput = ({ chatRoom }) => {
     setMessage('');
   }
 
+  // console.log(chatRoom);
+
   const updateLastMessage = async (newMessage) => {
+    console.log(newMessage)
     DataStore.save(ChatRoom.copyOf(chatRoom, updatedChatRoom => {
+      //Bug 
       updatedChatRoom.LastMessage = newMessage;
     }))
   }
+
+  console.log(chatRoom);
 
   const onPlusClicked = () => {
     console.warn("On plus clicked");

@@ -1,15 +1,16 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/HomeScreen';
+// import HomeScreen from '../screens/HomeScreen';
 import Entypo from 'react-native-vector-icons/Entypo';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import HomeStack from './HomeStack';
+// import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+// import AntDesign from 'react-native-vector-icons/AntDesign';
+// import HomeStack from './LiveStack';
 import ChatStack from './ChatStack';
 import ShoppingCartStack from './ShoppingCartStack';
 import ProductStack from './ProductStack';
 import LogOutScreen from '../screens/LogOutScreen';
-import ChatRoomScreen from '../screens/ChatRoomScreen';
+// import ChatRoomScreen from '../screens/ChatRoomScreen';
+import LiveStack from './LiveStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -41,7 +42,7 @@ const BottomTabNav = () => {
         }}
       />
       <Tab.Screen
-        component={HomeStack}
+        component={LiveStack}
         name="Sell"
         options={{
           tabBarIcon: ({color, size}) => (

@@ -16,7 +16,7 @@ export default function ChatRoomItem({ chatRoom }) {
         .filter(chatRoomUser => chatRoomUser.chatroom.id === chatRoom.id)
         .map(chatRoomUser => chatRoomUser.user);
 
-        console.log(fetchedUsers)
+        // console.log(fetchedUsers)
         setUser(fetchedUsers[0]);
 
       const authUser = await Auth.currentAuthenticatedUser();
@@ -27,7 +27,7 @@ export default function ChatRoomItem({ chatRoom }) {
   }, []);
 
   useEffect(() => {
-    console.log(chatRoom)
+    // console.log(chatRoom)
     if (!chatRoom.chatRoomLastMessageId) { return }
     // console.log(chatRoom.chatRoomLastMessageId)
     DataStore.query(Message, chatRoom.chatRoomLastMessageId).then(setLastMessage);

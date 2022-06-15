@@ -1,0 +1,203 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-desell-dev-163221-authRole",
+      "UnauthRoleArn": "arn:aws:iam::007303798792:role/amplify-desell-dev-163221-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::007303798792:role/amplify-desell-dev-163221-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-desell-dev-163221-deployment",
+      "UnauthRoleName": "amplify-desell-dev-163221-unauthRole",
+      "StackName": "amplify-desell-dev-163221",
+      "StackId": "arn:aws:cloudformation:us-east-1:007303798792:stack/amplify-desell-dev-163221/a4f98e40-c40d-11ec-8dff-0e2af5cf5e71",
+      "AmplifyAppId": "d3abeofv4qjifc",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-desell-dev-163221-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    }
+  },
+  "auth": {
+    "desellb9dfc161": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "desellb9dfc161PostConfirmation",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL",
+          "PHONE_NUMBER"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-desell-dev-163221-deployment/amplify-cfn-templates/auth/desellb9dfc161-cloudformation-template.json",
+        "logicalId": "authdesellb9dfc161"
+      },
+      "lastPushTimeStamp": "2022-06-15T12:09:54.946Z",
+      "output": {
+        "UserPoolId": "us-east-1_gFRqXVzV3",
+        "AppClientIDWeb": "23u5qjg6ag26l8c0j6h7hgq18k",
+        "AppClientID": "3f3bqh2b0q6c4lad0m809c5ohd",
+        "HostedUIDomain": "desellb9dfc161-b9dfc161-dev",
+        "IdentityPoolId": "us-east-1:f13b6116-ec3d-49fd-827a-65fb88c96737",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:007303798792:userpool/us-east-1_gFRqXVzV3",
+        "IdentityPoolName": "desellb9dfc161_identitypool_b9dfc161__dev",
+        "OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://www.youtube.com/watch?v=anfFscX3Z4Yhttp://localhost:8081/debugger-ui/\"],\"LogoutURLs\":[\"http://localhost:8081/debugger-ui/\"]}",
+        "UserPoolName": "desellb9dfc161_userpool_b9dfc161"
+      },
+      "lastPushDirHash": "KunrIwemlfNem3SI2xLnerohYZc="
+    }
+  },
+  "api": {
+    "desell": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 365,
+              "apiKeyExpirationDate": "2023-04-24T21:22:00.167Z",
+              "description": "kiento"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "5h22bjwlqrfbrajtlotra23xrq",
+        "GraphQLAPIEndpointOutput": "https://qw7mudjsyffonkdbjg5nccjlky.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-ofsozy6xfranhebphsni6m2whm"
+      },
+      "lastPushTimeStamp": "2022-06-15T12:11:48.759Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-desell-dev-163221-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apidesell"
+      },
+      "lastPushDirHash": "1c1D+lOHcvr4zEiLQX4Q26mW2nY="
+    },
+    "StripeWebhook": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "StripeWebhook",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-desell-dev-163221-deployment/amplify-cfn-templates/api/StripeWebhook-cloudformation-template.json",
+        "logicalId": "apiStripeWebhook"
+      },
+      "lastPushTimeStamp": "2022-06-15T12:09:54.967Z",
+      "output": {
+        "ApiName": "StripeWebhook",
+        "RootUrl": "https://0nyvx6dmmi.execute-api.us-east-1.amazonaws.com/dev",
+        "ApiId": "0nyvx6dmmi"
+      },
+      "lastPushDirHash": "lgJj1Ap9Z2fBlB36oZNHP1g+amQ="
+    }
+  },
+  "function": {
+    "Seri": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2022-06-15T10:52:50.227Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2022-06-15T10:52:51.214Z",
+      "distZipFilename": "Seri-4b50714f6d7a59306b51-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-desell-dev-163221-deployment",
+        "s3Key": "amplify-builds/Seri-4b50714f6d7a59306b51-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-desell-dev-163221-deployment/amplify-cfn-templates/function/Seri-cloudformation-template.json",
+        "logicalId": "functionSeri"
+      },
+      "lastPushTimeStamp": "2022-06-15T12:09:54.973Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:007303798792:function:Seri-dev",
+        "Name": "Seri-dev",
+        "LambdaExecutionRole": "desellLambdaRoled39b78cc-dev"
+      },
+      "lastPushDirHash": "zqoWcHm7bKWiYcdyUxmWVdjlEJE="
+    },
+    "StripeWebhook": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2022-06-15T10:52:50.230Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2022-06-15T10:52:50.346Z",
+      "distZipFilename": "StripeWebhook-45733462315a49552f4a-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-desell-dev-163221-deployment",
+        "s3Key": "amplify-builds/StripeWebhook-45733462315a49552f4a-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-desell-dev-163221-deployment/amplify-cfn-templates/function/StripeWebhook-cloudformation-template.json",
+        "logicalId": "functionStripeWebhook"
+      },
+      "lastPushTimeStamp": "2022-06-15T12:09:54.976Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:007303798792:function:StripeWebhook-dev",
+        "Name": "StripeWebhook-dev",
+        "LambdaExecutionRole": "desellLambdaRole2be503c0-dev"
+      },
+      "lastPushDirHash": "6qOrfnt++pHxdlGuJ0Ma5WeM/to="
+    },
+    "desellb9dfc161PostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2022-06-15T10:52:50.231Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2022-06-15T10:52:50.753Z",
+      "distZipFilename": "desellb9dfc161PostConfirmation-6f436167522b72515855-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-desell-dev-163221-deployment",
+        "s3Key": "amplify-builds/desellb9dfc161PostConfirmation-6f436167522b72515855-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-desell-dev-163221-deployment/amplify-cfn-templates/function/desellb9dfc161PostConfirmation-cloudformation-template.json",
+        "logicalId": "functiondesellb9dfc161PostConfirmation"
+      },
+      "lastPushTimeStamp": "2022-06-15T12:09:54.978Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:007303798792:function:desellb9dfc161PostConfirmation-dev",
+        "Name": "desellb9dfc161PostConfirmation-dev",
+        "LambdaExecutionRole": "desellb9dfc161PostConfirmation-dev"
+      },
+      "lastPushDirHash": "KSUCJ/gN1Zbo6uQ4eP0CAeCpcd4="
+    }
+  }
+}
