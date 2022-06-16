@@ -9,7 +9,6 @@ exports.handler = async (event, context) => {
   // event event.request.userAttributes.(sub, email, )
   // insert code to be executed by your lambda trigger
 
-  console.log('triggered')
   // save a new user to DynamoDB
   if(!event?.request?.userAttributes?.sub) {
     console.log("No sub provided")
