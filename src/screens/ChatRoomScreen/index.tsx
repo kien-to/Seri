@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View, StyleSheet, FlatList, SafeAreaView, ActivityIndicator} from 'react-native';
-import { useRoute, useNavigation } from '@react-navigation/core';
+import { useRoute, useNavigation } from '@react-navigation/native';
 import { DataStore } from '@aws-amplify/datastore';
 import { ChatRoom, Message as MessageModel } from '../../models';
 import Message  from '../../components/Message';

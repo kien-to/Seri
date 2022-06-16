@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Text, Image, View, Pressable, ActivityIndicator } from 'react-native';
-import { useNavigation } from '@react-navigation/core';
+import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 import { Auth, DataStore } from 'aws-amplify';
 import { ChatRoomUser, Message, User } from '../../models';
@@ -16,8 +16,13 @@ export default function ChatRoomItem({ chatRoom }) {
         .filter(chatRoomUser => chatRoomUser.chatroom.id === chatRoom.id)
         .map(chatRoomUser => chatRoomUser.user);
 
+<<<<<<< HEAD
+        // console.log(fetchedUsers)
+        // setUser(fetchedUsers[0]);
+=======
         console.log(fetchedUsers)
         setUser(fetchedUsers[0]);
+>>>>>>> origin/Main
 
       const authUser = await Auth.currentAuthenticatedUser();
       //console.log(authUser);
