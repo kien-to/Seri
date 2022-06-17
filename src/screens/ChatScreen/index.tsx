@@ -13,7 +13,7 @@ export default function TabOneScreen() {
     const fetchChatRooms = async () => {
       const userData = await Auth.currentAuthenticatedUser();
 
-      console.log(userData)
+      // console.log(userData)
       const chatRooms = (await DataStore.query(ChatRoomUser))
         .filter(chatRoomUser => chatRoomUser.user.id === userData.attributes.sub)
         .map(chatRoomUser => chatRoomUser.chatroom);
