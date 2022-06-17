@@ -1,15 +1,22 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, StyleSheet, FlatList, SafeAreaView, ActivityIndicator} from 'react-native';
-import { useRoute, useNavigation } from '@react-navigation/native';
-import { DataStore } from '@aws-amplify/datastore';
-import { ChatRoom, Message as MessageModel } from '../../models';
-import Message  from '../../components/Message';
+import {
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  SafeAreaView,
+  ActivityIndicator,
+} from 'react-native';
+import {useRoute, useNavigation} from '@react-navigation/native';
+import {DataStore} from '@aws-amplify/datastore';
+import {ChatRoom, Message as MessageModel} from '../../models';
+import Message from '../../components/Message';
 import MessageInput from '../../components/MessageInput';
-import { SortDirection } from 'aws-amplify';
+import {SortDirection} from 'aws-amplify';
 
 export default function ChatRoomScreen() {
   const [messages, setMessages] = useState<MessageModel[]>([]);
-  const [chatRoom, setChatRoom] = useState<ChatRoom|null>(null);
+  const [chatRoom, setChatRoom] = useState<ChatRoom | null>(null);
 
   const route = useRoute();
   const navigation = useNavigation();
@@ -26,7 +33,7 @@ export default function ChatRoomScreen() {
     const subscription = DataStore.observe(MessageModel).subscribe(msg => {
       console.log(msg.model, msg.opType, msg.element);
       if (msg.model === MessageModel && msg.opType === 'INSERT') {
-        setMessages(existingMessage => [msg.element,...existingMessage])
+        setMessages(existingMessage => [msg.element, ...existingMessage]);
       }
     });
 
@@ -35,7 +42,7 @@ export default function ChatRoomScreen() {
 
   const fetchChatRoom = async () => {
     if (!route.params?.id) {
-      console.warn("No chatroom id provided");
+      console.warn('No chatroom id provided');
       return;
     }
     const chatRoom = await DataStore.query(ChatRoom, route.params.id);
@@ -50,37 +57,38 @@ export default function ChatRoomScreen() {
     if (!chatRoom) {
       return;
     }
-    const fetchedMessages = await DataStore.query(MessageModel, 
-      message => message.chatroomID("eq", chatRoom?.id),
+    const fetchedMessages = await DataStore.query(
+      MessageModel,
+      message => message.chatroomID('eq', chatRoom?.id),
       {
-        sort: message => message.createdAt(SortDirection.DESCENDING)
-      }
+        sort: message => message.createdAt(SortDirection.DESCENDING),
+      },
     );
     // console.log(fetchedMessages);
     setMessages(fetchedMessages);
   };
 
-  navigation.setOptions({title: 'Kien To'})
+  navigation.setOptions({title: 'Kien To'});
 
   if (!chatRoom) {
-    return <ActivityIndicator />
+    return <ActivityIndicator />;
   }
 
   return (
     <SafeAreaView style={styles.page}>
       <FlatList
         data={messages}
-        renderItem={({ item}) => <Message message={item} />}
+        renderItem={({item}) => <Message message={item} />}
         inverted
       />
       <MessageInput chatRoom={chatRoom} />
     </SafeAreaView>
-  )
-};
+  );
+}
 
 const styles = StyleSheet.create({
   page: {
     backgroundColor: 'white',
     flex: 1,
-  }
-})
+  },
+});

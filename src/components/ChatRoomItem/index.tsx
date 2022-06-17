@@ -16,9 +16,8 @@ export default function ChatRoomItem({ chatRoom }) {
         .filter(chatRoomUser => chatRoomUser.chatroom.id === chatRoom.id)
         .map(chatRoomUser => chatRoomUser.user);
 
-//         console.log(fetchedUsers)
-// >>>>>>> origin/Main
-//         setUser(fetchedUsers[0]);
+        // console.log(fetchedUsers)
+        // setUser(fetchedUsers[0]);
 
       const authUser = await Auth.currentAuthenticatedUser();
       //console.log(authUser);
@@ -42,7 +41,7 @@ export default function ChatRoomItem({ chatRoom }) {
     return <ActivityIndicator />
   }
 
-  console.log(lastMessage);
+  // console.log(lastMessage);
 
   return (
     <Pressable onPress={onPress} style={styles.container}>
