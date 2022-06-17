@@ -39,24 +39,6 @@
     }
   },
   "api": {
-    "desell": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
-      "output": {
-        "authConfig": {
-          "defaultAuthentication": {
-            "authenticationType": "API_KEY",
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 365,
-              "apiKeyExpirationDate": "2023-04-24T21:22:00.167Z",
-              "description": "kiento"
-            }
-          },
-          "additionalAuthenticationProviders": []
-        }
-      }
-    },
     "StripeWebhook": {
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
@@ -70,6 +52,22 @@
           ]
         }
       ]
+    },
+    "desell": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
     }
   },
   "function": {

@@ -96,3 +96,4 @@ type ChatRoomUser @model
   chatroom: ChatRoom! @belongsTo(fields: ["chatroomID"])
   user: User! @belongsTo(fields: ["userID"])
 }
+

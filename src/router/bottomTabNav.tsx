@@ -10,7 +10,7 @@ import ShoppingCartStack from './ShoppingCartStack';
 import ProductStack from './ProductStack';
 import LogOutScreen from '../screens/LogOutScreen';
 // import ChatRoomScreen from '../screens/ChatRoomScreen';
-import LiveStack from './LiveStack';
+// import LiveStack from './LiveStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -41,7 +41,7 @@ const BottomTabNav = () => {
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         component={LiveStack}
         name="Sell"
         options={{
@@ -49,7 +49,7 @@ const BottomTabNav = () => {
             <Entypo name="camera" color={color} size={25} />
           ),
         }}
-      />
+      /> */}
       <Tab.Screen
         component={ChatStack}
         name="Notification"

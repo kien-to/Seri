@@ -1,6 +1,0 @@
-{
-  "AppSyncApiName": "desell",
-  "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2022-04-24T21:22:38.681Z"
-}

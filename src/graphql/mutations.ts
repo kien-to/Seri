@@ -20,9 +20,6 @@ export const createProduct = /* GraphQL */ `
       oldPrice
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -44,9 +41,6 @@ export const updateProduct = /* GraphQL */ `
       oldPrice
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -68,9 +62,6 @@ export const deleteProduct = /* GraphQL */ `
       oldPrice
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -98,15 +89,9 @@ export const createCartProduct = /* GraphQL */ `
         oldPrice
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -134,15 +119,9 @@ export const updateCartProduct = /* GraphQL */ `
         oldPrice
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -170,15 +149,9 @@ export const deleteCartProduct = /* GraphQL */ `
         oldPrice
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -205,9 +178,6 @@ export const createOrderProduct = /* GraphQL */ `
         oldPrice
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       orderID
       order {
@@ -220,15 +190,9 @@ export const createOrderProduct = /* GraphQL */ `
         address
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -255,9 +219,6 @@ export const updateOrderProduct = /* GraphQL */ `
         oldPrice
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       orderID
       order {
@@ -270,15 +231,9 @@ export const updateOrderProduct = /* GraphQL */ `
         address
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -305,9 +260,6 @@ export const deleteOrderProduct = /* GraphQL */ `
         oldPrice
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       orderID
       order {
@@ -320,15 +272,9 @@ export const deleteOrderProduct = /* GraphQL */ `
         address
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -347,9 +293,6 @@ export const createOrder = /* GraphQL */ `
       address
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -368,9 +311,6 @@ export const updateOrder = /* GraphQL */ `
       address
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -389,9 +329,6 @@ export const deleteOrder = /* GraphQL */ `
       address
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -407,9 +344,6 @@ export const createMessage = /* GraphQL */ `
       chatroomID
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -425,9 +359,6 @@ export const updateMessage = /* GraphQL */ `
       chatroomID
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -443,9 +374,6 @@ export const deleteMessage = /* GraphQL */ `
       chatroomID
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -464,9 +392,6 @@ export const createChatRoom = /* GraphQL */ `
         chatroomID
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       Messages {
         items {
@@ -476,12 +401,8 @@ export const createChatRoom = /* GraphQL */ `
           chatroomID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       ChatRoomUsers {
         items {
@@ -490,18 +411,11 @@ export const createChatRoom = /* GraphQL */ `
           userID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -520,9 +434,6 @@ export const updateChatRoom = /* GraphQL */ `
         chatroomID
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       Messages {
         items {
@@ -532,12 +443,8 @@ export const updateChatRoom = /* GraphQL */ `
           chatroomID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       ChatRoomUsers {
         items {
@@ -546,18 +453,11 @@ export const updateChatRoom = /* GraphQL */ `
           userID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -576,9 +476,6 @@ export const deleteChatRoom = /* GraphQL */ `
         chatroomID
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       Messages {
         items {
@@ -588,12 +485,8 @@ export const deleteChatRoom = /* GraphQL */ `
           chatroomID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       ChatRoomUsers {
         items {
@@ -602,18 +495,11 @@ export const deleteChatRoom = /* GraphQL */ `
           userID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -635,12 +521,8 @@ export const createUser = /* GraphQL */ `
           chatroomID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       chatrooms {
         items {
@@ -649,18 +531,11 @@ export const createUser = /* GraphQL */ `
           userID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -682,12 +557,8 @@ export const updateUser = /* GraphQL */ `
           chatroomID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       chatrooms {
         items {
@@ -696,18 +567,11 @@ export const updateUser = /* GraphQL */ `
           userID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -729,12 +593,8 @@ export const deleteUser = /* GraphQL */ `
           chatroomID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       chatrooms {
         items {
@@ -743,18 +603,11 @@ export const deleteUser = /* GraphQL */ `
           userID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -777,23 +630,15 @@ export const createChatRoomUser = /* GraphQL */ `
           chatroomID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         Messages {
           nextToken
-          startedAt
         }
         ChatRoomUsers {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       user {
         id
@@ -802,23 +647,15 @@ export const createChatRoomUser = /* GraphQL */ `
         status
         Messages {
           nextToken
-          startedAt
         }
         chatrooms {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -841,23 +678,15 @@ export const updateChatRoomUser = /* GraphQL */ `
           chatroomID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         Messages {
           nextToken
-          startedAt
         }
         ChatRoomUsers {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       user {
         id
@@ -866,23 +695,15 @@ export const updateChatRoomUser = /* GraphQL */ `
         status
         Messages {
           nextToken
-          startedAt
         }
         chatrooms {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -905,23 +726,15 @@ export const deleteChatRoomUser = /* GraphQL */ `
           chatroomID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         Messages {
           nextToken
-          startedAt
         }
         ChatRoomUsers {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       user {
         id
@@ -930,23 +743,15 @@ export const deleteChatRoomUser = /* GraphQL */ `
         status
         Messages {
           nextToken
-          startedAt
         }
         chatrooms {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;

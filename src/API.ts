@@ -13,7 +13,6 @@ export type CreateProductInput = {
   ratings?: number | null,
   price: number,
   oldPrice?: number | null,
-  _version?: number | null,
 };
 
 export type ModelProductConditionInput = {
@@ -109,9 +108,6 @@ export type Product = {
   oldPrice?: number | null,
   createdAt: string,
   updatedAt: string,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
 };
 
 export type UpdateProductInput = {
@@ -125,12 +121,10 @@ export type UpdateProductInput = {
   ratings?: number | null,
   price?: number | null,
   oldPrice?: number | null,
-  _version?: number | null,
 };
 
 export type DeleteProductInput = {
   id: string,
-  _version?: number | null,
 };
 
 export type CreateCartProductInput = {
@@ -139,7 +133,6 @@ export type CreateCartProductInput = {
   quantity: number,
   option?: string | null,
   productId: string,
-  _version?: number | null,
 };
 
 export type ModelCartProductConditionInput = {
@@ -178,9 +171,6 @@ export type CartProduct = {
   product?: Product | null,
   createdAt: string,
   updatedAt: string,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
 };
 
 export type UpdateCartProductInput = {
@@ -189,12 +179,10 @@ export type UpdateCartProductInput = {
   quantity?: number | null,
   option?: string | null,
   productId?: string | null,
-  _version?: number | null,
 };
 
 export type DeleteCartProductInput = {
   id: string,
-  _version?: number | null,
 };
 
 export type CreateOrderProductInput = {
@@ -203,7 +191,6 @@ export type CreateOrderProductInput = {
   option?: string | null,
   productID: string,
   orderID: string,
-  _version?: number | null,
 };
 
 export type ModelOrderProductConditionInput = {
@@ -227,9 +214,6 @@ export type OrderProduct = {
   order?: Order | null,
   createdAt: string,
   updatedAt: string,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
 };
 
 export type Order = {
@@ -243,9 +227,6 @@ export type Order = {
   address?: string | null,
   createdAt: string,
   updatedAt: string,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
 };
 
 export type UpdateOrderProductInput = {
@@ -254,12 +235,10 @@ export type UpdateOrderProductInput = {
   option?: string | null,
   productID?: string | null,
   orderID?: string | null,
-  _version?: number | null,
 };
 
 export type DeleteOrderProductInput = {
   id: string,
-  _version?: number | null,
 };
 
 export type CreateOrderInput = {
@@ -270,7 +249,6 @@ export type CreateOrderInput = {
   country?: string | null,
   city?: string | null,
   address?: string | null,
-  _version?: number | null,
 };
 
 export type ModelOrderConditionInput = {
@@ -293,12 +271,10 @@ export type UpdateOrderInput = {
   country?: string | null,
   city?: string | null,
   address?: string | null,
-  _version?: number | null,
 };
 
 export type DeleteOrderInput = {
   id: string,
-  _version?: number | null,
 };
 
 export type CreateMessageInput = {
@@ -306,7 +282,6 @@ export type CreateMessageInput = {
   content: string,
   userID?: string | null,
   chatroomID?: string | null,
-  _version?: number | null,
 };
 
 export type ModelMessageConditionInput = {
@@ -326,9 +301,6 @@ export type Message = {
   chatroomID?: string | null,
   createdAt: string,
   updatedAt: string,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
 };
 
 export type UpdateMessageInput = {
@@ -336,18 +308,15 @@ export type UpdateMessageInput = {
   content?: string | null,
   userID?: string | null,
   chatroomID?: string | null,
-  _version?: number | null,
 };
 
 export type DeleteMessageInput = {
   id: string,
-  _version?: number | null,
 };
 
 export type CreateChatRoomInput = {
   id?: string | null,
   newMessages?: number | null,
-  _version?: number | null,
 };
 
 export type ModelChatRoomConditionInput = {
@@ -366,23 +335,18 @@ export type ChatRoom = {
   ChatRoomUsers?: ModelChatRoomUserConnection | null,
   createdAt: string,
   updatedAt: string,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
 };
 
 export type ModelMessageConnection = {
   __typename: "ModelMessageConnection",
   items:  Array<Message | null >,
   nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type ModelChatRoomUserConnection = {
   __typename: "ModelChatRoomUserConnection",
   items:  Array<ChatRoomUser | null >,
   nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type ChatRoomUser = {
@@ -394,9 +358,6 @@ export type ChatRoomUser = {
   user: User,
   createdAt: string,
   updatedAt: string,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
 };
 
 export type User = {
@@ -409,20 +370,15 @@ export type User = {
   chatrooms?: ModelChatRoomUserConnection | null,
   createdAt: string,
   updatedAt: string,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
 };
 
 export type UpdateChatRoomInput = {
   id: string,
   newMessages?: number | null,
-  _version?: number | null,
 };
 
 export type DeleteChatRoomInput = {
   id: string,
-  _version?: number | null,
 };
 
 export type CreateUserInput = {
@@ -430,7 +386,6 @@ export type CreateUserInput = {
   name: string,
   imageUri?: string | null,
   status?: string | null,
-  _version?: number | null,
 };
 
 export type ModelUserConditionInput = {
@@ -447,19 +402,16 @@ export type UpdateUserInput = {
   name?: string | null,
   imageUri?: string | null,
   status?: string | null,
-  _version?: number | null,
 };
 
 export type DeleteUserInput = {
   id: string,
-  _version?: number | null,
 };
 
 export type CreateChatRoomUserInput = {
   id?: string | null,
   chatroomID: string,
   userID: string,
-  _version?: number | null,
 };
 
 export type ModelChatRoomUserConditionInput = {
@@ -474,12 +426,10 @@ export type UpdateChatRoomUserInput = {
   id: string,
   chatroomID?: string | null,
   userID?: string | null,
-  _version?: number | null,
 };
 
 export type DeleteChatRoomUserInput = {
   id: string,
-  _version?: number | null,
 };
 
 export type ModelProductFilterInput = {
@@ -502,7 +452,6 @@ export type ModelProductConnection = {
   __typename: "ModelProductConnection",
   items:  Array<Product | null >,
   nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type ModelCartProductFilterInput = {
@@ -520,7 +469,6 @@ export type ModelCartProductConnection = {
   __typename: "ModelCartProductConnection",
   items:  Array<CartProduct | null >,
   nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type ModelOrderProductFilterInput = {
@@ -538,7 +486,6 @@ export type ModelOrderProductConnection = {
   __typename: "ModelOrderProductConnection",
   items:  Array<OrderProduct | null >,
   nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type ModelOrderFilterInput = {
@@ -558,7 +505,6 @@ export type ModelOrderConnection = {
   __typename: "ModelOrderConnection",
   items:  Array<Order | null >,
   nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type ModelMessageFilterInput = {
@@ -583,7 +529,6 @@ export type ModelChatRoomConnection = {
   __typename: "ModelChatRoomConnection",
   items:  Array<ChatRoom | null >,
   nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type ModelUserFilterInput = {
@@ -600,7 +545,6 @@ export type ModelUserConnection = {
   __typename: "ModelUserConnection",
   items:  Array<User | null >,
   nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type ModelChatRoomUserFilterInput = {
@@ -632,9 +576,6 @@ export type CreateProductMutation = {
     oldPrice?: number | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -658,9 +599,6 @@ export type UpdateProductMutation = {
     oldPrice?: number | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -684,9 +622,6 @@ export type DeleteProductMutation = {
     oldPrice?: number | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -717,15 +652,9 @@ export type CreateCartProductMutation = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -756,15 +685,9 @@ export type UpdateCartProductMutation = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -795,15 +718,9 @@ export type DeleteCartProductMutation = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -833,9 +750,6 @@ export type CreateOrderProductMutation = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     orderID: string,
     order?:  {
@@ -849,15 +763,9 @@ export type CreateOrderProductMutation = {
       address?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -887,9 +795,6 @@ export type UpdateOrderProductMutation = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     orderID: string,
     order?:  {
@@ -903,15 +808,9 @@ export type UpdateOrderProductMutation = {
       address?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -941,9 +840,6 @@ export type DeleteOrderProductMutation = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     orderID: string,
     order?:  {
@@ -957,15 +853,9 @@ export type DeleteOrderProductMutation = {
       address?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -986,9 +876,6 @@ export type CreateOrderMutation = {
     address?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1009,9 +896,6 @@ export type UpdateOrderMutation = {
     address?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1032,9 +916,6 @@ export type DeleteOrderMutation = {
     address?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1052,9 +933,6 @@ export type CreateMessageMutation = {
     chatroomID?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1072,9 +950,6 @@ export type UpdateMessageMutation = {
     chatroomID?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1092,9 +967,6 @@ export type DeleteMessageMutation = {
     chatroomID?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1116,9 +988,6 @@ export type CreateChatRoomMutation = {
       chatroomID?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     Messages?:  {
       __typename: "ModelMessageConnection",
@@ -1130,12 +999,8 @@ export type CreateChatRoomMutation = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     ChatRoomUsers?:  {
       __typename: "ModelChatRoomUserConnection",
@@ -1146,18 +1011,11 @@ export type CreateChatRoomMutation = {
         userID: string,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1179,9 +1037,6 @@ export type UpdateChatRoomMutation = {
       chatroomID?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     Messages?:  {
       __typename: "ModelMessageConnection",
@@ -1193,12 +1048,8 @@ export type UpdateChatRoomMutation = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     ChatRoomUsers?:  {
       __typename: "ModelChatRoomUserConnection",
@@ -1209,18 +1060,11 @@ export type UpdateChatRoomMutation = {
         userID: string,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1242,9 +1086,6 @@ export type DeleteChatRoomMutation = {
       chatroomID?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     Messages?:  {
       __typename: "ModelMessageConnection",
@@ -1256,12 +1097,8 @@ export type DeleteChatRoomMutation = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     ChatRoomUsers?:  {
       __typename: "ModelChatRoomUserConnection",
@@ -1272,18 +1109,11 @@ export type DeleteChatRoomMutation = {
         userID: string,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1309,12 +1139,8 @@ export type CreateUserMutation = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     chatrooms?:  {
       __typename: "ModelChatRoomUserConnection",
@@ -1325,18 +1151,11 @@ export type CreateUserMutation = {
         userID: string,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1362,12 +1181,8 @@ export type UpdateUserMutation = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     chatrooms?:  {
       __typename: "ModelChatRoomUserConnection",
@@ -1378,18 +1193,11 @@ export type UpdateUserMutation = {
         userID: string,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1415,12 +1223,8 @@ export type DeleteUserMutation = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     chatrooms?:  {
       __typename: "ModelChatRoomUserConnection",
@@ -1431,18 +1235,11 @@ export type DeleteUserMutation = {
         userID: string,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1469,25 +1266,17 @@ export type CreateChatRoomUserMutation = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null,
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       ChatRoomUsers?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     },
     user:  {
       __typename: "User",
@@ -1498,24 +1287,16 @@ export type CreateChatRoomUserMutation = {
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       chatrooms?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     },
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1542,25 +1323,17 @@ export type UpdateChatRoomUserMutation = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null,
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       ChatRoomUsers?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     },
     user:  {
       __typename: "User",
@@ -1571,24 +1344,16 @@ export type UpdateChatRoomUserMutation = {
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       chatrooms?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     },
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1615,25 +1380,17 @@ export type DeleteChatRoomUserMutation = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null,
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       ChatRoomUsers?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     },
     user:  {
       __typename: "User",
@@ -1644,24 +1401,16 @@ export type DeleteChatRoomUserMutation = {
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       chatrooms?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     },
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1684,9 +1433,6 @@ export type GetProductQuery = {
     oldPrice?: number | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1713,45 +1459,8 @@ export type ListProductsQuery = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null >,
     nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type SyncProductsQueryVariables = {
-  filter?: ModelProductFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncProductsQuery = {
-  syncProducts?:  {
-    __typename: "ModelProductConnection",
-    items:  Array< {
-      __typename: "Product",
-      id: string,
-      title: string,
-      description?: string | null,
-      image: string,
-      images: Array< string >,
-      options?: Array< string > | null,
-      avgRating?: number | null,
-      ratings?: number | null,
-      price: number,
-      oldPrice?: number | null,
-      createdAt: string,
-      updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-    } | null >,
-    nextToken?: string | null,
-    startedAt?: number | null,
   } | null,
 };
 
@@ -1781,15 +1490,9 @@ export type GetCartProductQuery = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1823,64 +1526,11 @@ export type ListCartProductsQuery = {
         oldPrice?: number | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null >,
     nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type SyncCartProductsQueryVariables = {
-  filter?: ModelCartProductFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncCartProductsQuery = {
-  syncCartProducts?:  {
-    __typename: "ModelCartProductConnection",
-    items:  Array< {
-      __typename: "CartProduct",
-      id: string,
-      userSub: string,
-      quantity: number,
-      option?: string | null,
-      productId: string,
-      product?:  {
-        __typename: "Product",
-        id: string,
-        title: string,
-        description?: string | null,
-        image: string,
-        images: Array< string >,
-        options?: Array< string > | null,
-        avgRating?: number | null,
-        ratings?: number | null,
-        price: number,
-        oldPrice?: number | null,
-        createdAt: string,
-        updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-    } | null >,
-    nextToken?: string | null,
-    startedAt?: number | null,
   } | null,
 };
 
@@ -1909,9 +1559,6 @@ export type GetOrderProductQuery = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     orderID: string,
     order?:  {
@@ -1925,15 +1572,9 @@ export type GetOrderProductQuery = {
       address?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -1966,9 +1607,6 @@ export type ListOrderProductsQuery = {
         oldPrice?: number | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null,
       orderID: string,
       order?:  {
@@ -1982,79 +1620,11 @@ export type ListOrderProductsQuery = {
         address?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null >,
     nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type SyncOrderProductsQueryVariables = {
-  filter?: ModelOrderProductFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncOrderProductsQuery = {
-  syncOrderProducts?:  {
-    __typename: "ModelOrderProductConnection",
-    items:  Array< {
-      __typename: "OrderProduct",
-      id: string,
-      quantity: number,
-      option?: string | null,
-      productID: string,
-      product?:  {
-        __typename: "Product",
-        id: string,
-        title: string,
-        description?: string | null,
-        image: string,
-        images: Array< string >,
-        options?: Array< string > | null,
-        avgRating?: number | null,
-        ratings?: number | null,
-        price: number,
-        oldPrice?: number | null,
-        createdAt: string,
-        updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
-      } | null,
-      orderID: string,
-      order?:  {
-        __typename: "Order",
-        id: string,
-        userSub: string,
-        fullName: string,
-        phoneNumber?: string | null,
-        country?: string | null,
-        city?: string | null,
-        address?: string | null,
-        createdAt: string,
-        updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-    } | null >,
-    nextToken?: string | null,
-    startedAt?: number | null,
   } | null,
 };
 
@@ -2074,9 +1644,6 @@ export type GetOrderQuery = {
     address?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -2100,42 +1667,8 @@ export type ListOrdersQuery = {
       address?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null >,
     nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type SyncOrdersQueryVariables = {
-  filter?: ModelOrderFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncOrdersQuery = {
-  syncOrders?:  {
-    __typename: "ModelOrderConnection",
-    items:  Array< {
-      __typename: "Order",
-      id: string,
-      userSub: string,
-      fullName: string,
-      phoneNumber?: string | null,
-      country?: string | null,
-      city?: string | null,
-      address?: string | null,
-      createdAt: string,
-      updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-    } | null >,
-    nextToken?: string | null,
-    startedAt?: number | null,
   } | null,
 };
 
@@ -2152,9 +1685,6 @@ export type GetMessageQuery = {
     chatroomID?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -2175,39 +1705,8 @@ export type ListMessagesQuery = {
       chatroomID?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null >,
     nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type SyncMessagesQueryVariables = {
-  filter?: ModelMessageFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncMessagesQuery = {
-  syncMessages?:  {
-    __typename: "ModelMessageConnection",
-    items:  Array< {
-      __typename: "Message",
-      id: string,
-      content: string,
-      userID?: string | null,
-      chatroomID?: string | null,
-      createdAt: string,
-      updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-    } | null >,
-    nextToken?: string | null,
-    startedAt?: number | null,
   } | null,
 };
 
@@ -2228,9 +1727,6 @@ export type GetChatRoomQuery = {
       chatroomID?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     Messages?:  {
       __typename: "ModelMessageConnection",
@@ -2242,12 +1738,8 @@ export type GetChatRoomQuery = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     ChatRoomUsers?:  {
       __typename: "ModelChatRoomUserConnection",
@@ -2258,18 +1750,11 @@ export type GetChatRoomQuery = {
         userID: string,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -2294,75 +1779,19 @@ export type ListChatRoomsQuery = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null,
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       ChatRoomUsers?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null >,
     nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type SyncChatRoomsQueryVariables = {
-  filter?: ModelChatRoomFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncChatRoomsQuery = {
-  syncChatRooms?:  {
-    __typename: "ModelChatRoomConnection",
-    items:  Array< {
-      __typename: "ChatRoom",
-      id: string,
-      newMessages?: number | null,
-      LastMessage?:  {
-        __typename: "Message",
-        id: string,
-        content: string,
-        userID?: string | null,
-        chatroomID?: string | null,
-        createdAt: string,
-        updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
-      } | null,
-      Messages?:  {
-        __typename: "ModelMessageConnection",
-        nextToken?: string | null,
-        startedAt?: number | null,
-      } | null,
-      ChatRoomUsers?:  {
-        __typename: "ModelChatRoomUserConnection",
-        nextToken?: string | null,
-        startedAt?: number | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-    } | null >,
-    nextToken?: string | null,
-    startedAt?: number | null,
   } | null,
 };
 
@@ -2387,12 +1816,8 @@ export type GetUserQuery = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     chatrooms?:  {
       __typename: "ModelChatRoomUserConnection",
@@ -2403,18 +1828,11 @@ export type GetUserQuery = {
         userID: string,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -2436,58 +1854,15 @@ export type ListUsersQuery = {
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       chatrooms?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null >,
     nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type SyncUsersQueryVariables = {
-  filter?: ModelUserFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncUsersQuery = {
-  syncUsers?:  {
-    __typename: "ModelUserConnection",
-    items:  Array< {
-      __typename: "User",
-      id: string,
-      name: string,
-      imageUri?: string | null,
-      status?: string | null,
-      Messages?:  {
-        __typename: "ModelMessageConnection",
-        nextToken?: string | null,
-        startedAt?: number | null,
-      } | null,
-      chatrooms?:  {
-        __typename: "ModelChatRoomUserConnection",
-        nextToken?: string | null,
-        startedAt?: number | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-    } | null >,
-    nextToken?: string | null,
-    startedAt?: number | null,
   } | null,
 };
 
@@ -2513,25 +1888,17 @@ export type GetChatRoomUserQuery = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null,
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       ChatRoomUsers?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     },
     user:  {
       __typename: "User",
@@ -2542,24 +1909,16 @@ export type GetChatRoomUserQuery = {
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       chatrooms?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     },
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -2583,9 +1942,6 @@ export type ListChatRoomUsersQuery = {
         newMessages?: number | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       },
       user:  {
         __typename: "User",
@@ -2595,66 +1951,11 @@ export type ListChatRoomUsersQuery = {
         status?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       },
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null >,
     nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type SyncChatRoomUsersQueryVariables = {
-  filter?: ModelChatRoomUserFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncChatRoomUsersQuery = {
-  syncChatRoomUsers?:  {
-    __typename: "ModelChatRoomUserConnection",
-    items:  Array< {
-      __typename: "ChatRoomUser",
-      id: string,
-      chatroomID: string,
-      userID: string,
-      chatroom:  {
-        __typename: "ChatRoom",
-        id: string,
-        newMessages?: number | null,
-        createdAt: string,
-        updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
-      },
-      user:  {
-        __typename: "User",
-        id: string,
-        name: string,
-        imageUri?: string | null,
-        status?: string | null,
-        createdAt: string,
-        updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
-      },
-      createdAt: string,
-      updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-    } | null >,
-    nextToken?: string | null,
-    startedAt?: number | null,
   } | null,
 };
 
@@ -2673,9 +1974,6 @@ export type OnCreateProductSubscription = {
     oldPrice?: number | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -2694,9 +1992,6 @@ export type OnUpdateProductSubscription = {
     oldPrice?: number | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -2715,9 +2010,6 @@ export type OnDeleteProductSubscription = {
     oldPrice?: number | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -2743,15 +2035,9 @@ export type OnCreateCartProductSubscription = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -2777,15 +2063,9 @@ export type OnUpdateCartProductSubscription = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -2811,15 +2091,9 @@ export type OnDeleteCartProductSubscription = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -2844,9 +2118,6 @@ export type OnCreateOrderProductSubscription = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     orderID: string,
     order?:  {
@@ -2860,15 +2131,9 @@ export type OnCreateOrderProductSubscription = {
       address?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -2893,9 +2158,6 @@ export type OnUpdateOrderProductSubscription = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     orderID: string,
     order?:  {
@@ -2909,15 +2171,9 @@ export type OnUpdateOrderProductSubscription = {
       address?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -2942,9 +2198,6 @@ export type OnDeleteOrderProductSubscription = {
       oldPrice?: number | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     orderID: string,
     order?:  {
@@ -2958,15 +2211,9 @@ export type OnDeleteOrderProductSubscription = {
       address?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -2982,9 +2229,6 @@ export type OnCreateOrderSubscription = {
     address?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -3000,9 +2244,6 @@ export type OnUpdateOrderSubscription = {
     address?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -3018,9 +2259,6 @@ export type OnDeleteOrderSubscription = {
     address?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -3033,9 +2271,6 @@ export type OnCreateMessageSubscription = {
     chatroomID?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -3048,9 +2283,6 @@ export type OnUpdateMessageSubscription = {
     chatroomID?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -3063,9 +2295,6 @@ export type OnDeleteMessageSubscription = {
     chatroomID?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -3082,9 +2311,6 @@ export type OnCreateChatRoomSubscription = {
       chatroomID?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     Messages?:  {
       __typename: "ModelMessageConnection",
@@ -3096,12 +2322,8 @@ export type OnCreateChatRoomSubscription = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     ChatRoomUsers?:  {
       __typename: "ModelChatRoomUserConnection",
@@ -3112,18 +2334,11 @@ export type OnCreateChatRoomSubscription = {
         userID: string,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -3140,9 +2355,6 @@ export type OnUpdateChatRoomSubscription = {
       chatroomID?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     Messages?:  {
       __typename: "ModelMessageConnection",
@@ -3154,12 +2366,8 @@ export type OnUpdateChatRoomSubscription = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     ChatRoomUsers?:  {
       __typename: "ModelChatRoomUserConnection",
@@ -3170,18 +2378,11 @@ export type OnUpdateChatRoomSubscription = {
         userID: string,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -3198,9 +2399,6 @@ export type OnDeleteChatRoomSubscription = {
       chatroomID?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } | null,
     Messages?:  {
       __typename: "ModelMessageConnection",
@@ -3212,12 +2410,8 @@ export type OnDeleteChatRoomSubscription = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     ChatRoomUsers?:  {
       __typename: "ModelChatRoomUserConnection",
@@ -3228,18 +2422,11 @@ export type OnDeleteChatRoomSubscription = {
         userID: string,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -3260,12 +2447,8 @@ export type OnCreateUserSubscription = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     chatrooms?:  {
       __typename: "ModelChatRoomUserConnection",
@@ -3276,18 +2459,11 @@ export type OnCreateUserSubscription = {
         userID: string,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -3308,12 +2484,8 @@ export type OnUpdateUserSubscription = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     chatrooms?:  {
       __typename: "ModelChatRoomUserConnection",
@@ -3324,18 +2496,11 @@ export type OnUpdateUserSubscription = {
         userID: string,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -3356,12 +2521,8 @@ export type OnDeleteUserSubscription = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     chatrooms?:  {
       __typename: "ModelChatRoomUserConnection",
@@ -3372,18 +2533,11 @@ export type OnDeleteUserSubscription = {
         userID: string,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -3405,25 +2559,17 @@ export type OnCreateChatRoomUserSubscription = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null,
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       ChatRoomUsers?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     },
     user:  {
       __typename: "User",
@@ -3434,24 +2580,16 @@ export type OnCreateChatRoomUserSubscription = {
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       chatrooms?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     },
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -3473,25 +2611,17 @@ export type OnUpdateChatRoomUserSubscription = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null,
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       ChatRoomUsers?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     },
     user:  {
       __typename: "User",
@@ -3502,24 +2632,16 @@ export type OnUpdateChatRoomUserSubscription = {
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       chatrooms?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     },
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -3541,25 +2663,17 @@ export type OnDeleteChatRoomUserSubscription = {
         chatroomID?: string | null,
         createdAt: string,
         updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
       } | null,
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       ChatRoomUsers?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     },
     user:  {
       __typename: "User",
@@ -3570,23 +2684,15 @@ export type OnDeleteChatRoomUserSubscription = {
       Messages?:  {
         __typename: "ModelMessageConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       chatrooms?:  {
         __typename: "ModelChatRoomUserConnection",
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     },
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };

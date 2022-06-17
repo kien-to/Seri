@@ -17,9 +17,6 @@ export const getProduct = /* GraphQL */ `
       oldPrice
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -43,47 +40,8 @@ export const listProducts = /* GraphQL */ `
         oldPrice
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncProducts = /* GraphQL */ `
-  query SyncProducts(
-    $filter: ModelProductFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncProducts(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        title
-        description
-        image
-        images
-        options
-        avgRating
-        ratings
-        price
-        oldPrice
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -108,15 +66,9 @@ export const getCartProduct = /* GraphQL */ `
         oldPrice
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -146,65 +98,11 @@ export const listCartProducts = /* GraphQL */ `
           oldPrice
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncCartProducts = /* GraphQL */ `
-  query SyncCartProducts(
-    $filter: ModelCartProductFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncCartProducts(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        userSub
-        quantity
-        option
-        productId
-        product {
-          id
-          title
-          description
-          image
-          images
-          options
-          avgRating
-          ratings
-          price
-          oldPrice
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -228,9 +126,6 @@ export const getOrderProduct = /* GraphQL */ `
         oldPrice
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       orderID
       order {
@@ -243,15 +138,9 @@ export const getOrderProduct = /* GraphQL */ `
         address
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -280,9 +169,6 @@ export const listOrderProducts = /* GraphQL */ `
           oldPrice
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         orderID
         order {
@@ -295,79 +181,11 @@ export const listOrderProducts = /* GraphQL */ `
           address
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncOrderProducts = /* GraphQL */ `
-  query SyncOrderProducts(
-    $filter: ModelOrderProductFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncOrderProducts(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        quantity
-        option
-        productID
-        product {
-          id
-          title
-          description
-          image
-          images
-          options
-          avgRating
-          ratings
-          price
-          oldPrice
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        orderID
-        order {
-          id
-          userSub
-          fullName
-          phoneNumber
-          country
-          city
-          address
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -383,9 +201,6 @@ export const getOrder = /* GraphQL */ `
       address
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -406,44 +221,8 @@ export const listOrders = /* GraphQL */ `
         address
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncOrders = /* GraphQL */ `
-  query SyncOrders(
-    $filter: ModelOrderFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncOrders(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        userSub
-        fullName
-        phoneNumber
-        country
-        city
-        address
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -456,9 +235,6 @@ export const getMessage = /* GraphQL */ `
       chatroomID
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -476,41 +252,8 @@ export const listMessages = /* GraphQL */ `
         chatroomID
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncMessages = /* GraphQL */ `
-  query SyncMessages(
-    $filter: ModelMessageFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncMessages(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        content
-        userID
-        chatroomID
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -526,9 +269,6 @@ export const getChatRoom = /* GraphQL */ `
         chatroomID
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       Messages {
         items {
@@ -538,12 +278,8 @@ export const getChatRoom = /* GraphQL */ `
           chatroomID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       ChatRoomUsers {
         items {
@@ -552,18 +288,11 @@ export const getChatRoom = /* GraphQL */ `
           userID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -584,72 +313,17 @@ export const listChatRooms = /* GraphQL */ `
           chatroomID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         Messages {
           nextToken
-          startedAt
         }
         ChatRoomUsers {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncChatRooms = /* GraphQL */ `
-  query SyncChatRooms(
-    $filter: ModelChatRoomFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncChatRooms(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        newMessages
-        LastMessage {
-          id
-          content
-          userID
-          chatroomID
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Messages {
-          nextToken
-          startedAt
-        }
-        ChatRoomUsers {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -668,12 +342,8 @@ export const getUser = /* GraphQL */ `
           chatroomID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       chatrooms {
         items {
@@ -682,18 +352,11 @@ export const getUser = /* GraphQL */ `
           userID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -711,57 +374,14 @@ export const listUsers = /* GraphQL */ `
         status
         Messages {
           nextToken
-          startedAt
         }
         chatrooms {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncUsers = /* GraphQL */ `
-  query SyncUsers(
-    $filter: ModelUserFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncUsers(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        name
-        imageUri
-        status
-        Messages {
-          nextToken
-          startedAt
-        }
-        chatrooms {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -781,23 +401,15 @@ export const getChatRoomUser = /* GraphQL */ `
           chatroomID
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         Messages {
           nextToken
-          startedAt
         }
         ChatRoomUsers {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       user {
         id
@@ -806,23 +418,15 @@ export const getChatRoomUser = /* GraphQL */ `
         status
         Messages {
           nextToken
-          startedAt
         }
         chatrooms {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -842,9 +446,6 @@ export const listChatRoomUsers = /* GraphQL */ `
           newMessages
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         user {
           id
@@ -853,66 +454,11 @@ export const listChatRoomUsers = /* GraphQL */ `
           status
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncChatRoomUsers = /* GraphQL */ `
-  query SyncChatRoomUsers(
-    $filter: ModelChatRoomUserFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncChatRoomUsers(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        chatroomID
-        userID
-        chatroom {
-          id
-          newMessages
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        user {
-          id
-          name
-          imageUri
-          status
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
