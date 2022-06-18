@@ -1,7 +1,3 @@
-input AMPLIFY {
-  globalAuthRule: AuthRule = {allow: public}
-}
-
 type Product @model @auth(rules: [{allow: public}]) {
   id: ID!
   title: String!
@@ -49,12 +45,14 @@ type Message @model @auth(rules: [{allow: public}]) {
   content: String!
   userID: ID @index(name: "byUser")
   chatroomID: ID @index(name: "byChatRoom")
+  # chatRoomLastMessageId: ID @index(name: "byMessage")
 }
 
 type ChatRoom @model @auth(rules: [{allow: public}]) {
   id: ID!
   newMessages: Int
-  LastMessage: Message @hasOne(fields: ["id"])
+  chatRoomLastMessageId: ID 
+  LastMessage: Message @hasOne(fields: ["chatRoomLastMessageId"])
   Messages: [Message] @hasMany(indexName: "byChatRoom", fields: ["id"])
   ChatRoomUsers: [ChatRoomUser] @hasMany(indexName: "byChatRoom", fields: ["id"])
 }
@@ -74,4 +72,5 @@ type ChatRoomUser @model @auth(rules: [{allow: public}]) {
   userID: ID! @index(name: "byUser", sortKeyFields: ["chatroomID"])
   chatroom: ChatRoom! @belongsTo(fields: ["chatroomID"])
   user: User! @belongsTo(fields: ["userID"])
-} 
+}
+ 

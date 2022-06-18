@@ -42,7 +42,7 @@ const BottomTabNav = () => {
         }}
       />
       {/* <Tab.Screen
-        component={LiveStack}
+        component={ChatStack}
         name="Sell"
         options={{
           tabBarIcon: ({color, size}) => (

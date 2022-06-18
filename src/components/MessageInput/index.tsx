@@ -31,6 +31,7 @@ const MessageInput = ({chatRoom}) => {
       }),
     );
 
+    
     updateLastMessage(newMessage);
 
     setMessage('');
@@ -44,8 +45,6 @@ const MessageInput = ({chatRoom}) => {
       }),
     );
   };
-
-  console.log(chatRoom);
 
   const onPlusClicked = () => {
     console.warn('Cannot send empty message');

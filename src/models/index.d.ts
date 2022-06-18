@@ -28,11 +28,11 @@ type ChatRoomMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
-type UserMetaData = {
+type ChatRoomUserMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
-type ChatRoomUserMetaData = {
+type UserMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
@@ -108,6 +108,7 @@ export declare class Message {
 export declare class ChatRoom {
   readonly id: string;
   readonly newMessages?: number | null;
+  readonly chatRoomLastMessageId?: string | null;
   readonly LastMessage?: Message | null;
   readonly Messages?: (Message | null)[] | null;
   readonly ChatRoomUsers?: (ChatRoomUser | null)[] | null;
@@ -115,6 +116,16 @@ export declare class ChatRoom {
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<ChatRoom, ChatRoomMetaData>);
   static copyOf(source: ChatRoom, mutator: (draft: MutableModel<ChatRoom, ChatRoomMetaData>) => MutableModel<ChatRoom, ChatRoomMetaData> | void): ChatRoom;
+}
+
+export declare class ChatRoomUser {
+  readonly id: string;
+  readonly chatroom: ChatRoom;
+  readonly user: User;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<ChatRoomUser, ChatRoomUserMetaData>);
+  static copyOf(source: ChatRoomUser, mutator: (draft: MutableModel<ChatRoomUser, ChatRoomUserMetaData>) => MutableModel<ChatRoomUser, ChatRoomUserMetaData> | void): ChatRoomUser;
 }
 
 export declare class User {
@@ -128,14 +139,4 @@ export declare class User {
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<User, UserMetaData>);
   static copyOf(source: User, mutator: (draft: MutableModel<User, UserMetaData>) => MutableModel<User, UserMetaData> | void): User;
-}
-
-export declare class ChatRoomUser {
-  readonly id: string;
-  readonly chatRoom: ChatRoom;
-  readonly user: User;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-  constructor(init: ModelInit<ChatRoomUser, ChatRoomUserMetaData>);
-  static copyOf(source: ChatRoomUser, mutator: (draft: MutableModel<ChatRoomUser, ChatRoomUserMetaData>) => MutableModel<ChatRoomUser, ChatRoomUserMetaData> | void): ChatRoomUser;
 }
