@@ -75,10 +75,10 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>AwesomeProject requires access to your phone’s Microphone.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Give $(PRODUCT_NAME) permission to save photos</string>
+	<string>Give us permission to save photos</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Give $(PRODUCT_NAME) permission to access your camera</string>
+	<string>Give us permission to access your camera</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Give $(PRODUCT_NAME) permission to use your microphone</string>
+	<string>Give us permission to use your microphone</string>
 </dict>
 </plist>

@@ -383,7 +383,7 @@
 
 // export default MessageInput;
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -401,9 +401,29 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import ImagePicker from 'react-native-image-picker';
+// import EmojiSelector from "react-native-emoji-selector";
 
 const MessageInput = ({chatRoom}) => {
   const [message, setMessage] = useState('');
+
+    useEffect(() => {
+    (async () => {
+      if (Platform.OS !== "web") {
+        const libraryResponse =
+          await ImagePicker.requestMediaLibraryPermissionsAsync();
+        const photoResponse = await ImagePicker.requestCameraPermissionsAsync();
+        await Audio.requestPermissionsAsync();
+
+        if (
+          libraryResponse.status !== "granted" ||
+          photoResponse.status !== "granted"
+        ) {
+          alert("Sorry, we need camera roll permissions to make this work!");
+        }
+      }
+    })();
+  }, []);
 
   const sendMessage = async () => {
     // send message
@@ -478,6 +498,7 @@ const MessageInput = ({chatRoom}) => {
           <AntDesign name="plus" size={24} color="white" />
         )}
       </Pressable>
+
     </KeyboardAvoidingView>
   );
 };
