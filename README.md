@@ -2,9 +2,8 @@
 
 C2C Marketplace App where people can buy, sell, and connect.
 
-Current features: Authentication, Shopping Cart, Reviews, Product Listing, Direct messaging, Stripe-integrated payment.
-
-Future features: Augmented Reality try-ons for selected products, Computer Vision authentication technology.
+Current features: Authentication, Shopping Cart, Reviews, Product Listing, Direct messaging, Stripe-integrated payment, Augmented Reality try-ons for selected products.
+Future feature: Computer Vision authentication technology.
 
 Steps to set up the project in your local computer: 
 1. Clone to your local directory. 
